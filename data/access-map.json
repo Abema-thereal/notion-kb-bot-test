@@ -1,0 +1,271 @@
+{
+  "pageScopeOverrides": {},
+  "roots": [
+    {
+      "key": "docs",
+      "title": "Docs",
+      "type": "database",
+      "id": "94bfc19bc0904c5a934dfc378e31ac10",
+      "allowedScopes": [
+        "public"
+      ],
+      "enabled": true,
+      "indexMode": "metadata"
+    },
+    {
+      "key": "release-notes",
+      "title": "Release Notes",
+      "type": "database",
+      "id": "c3bacedbcf2a44d0a52824da495e6f77",
+      "allowedScopes": [
+        "public"
+      ],
+      "enabled": true,
+      "indexMode": "metadata"
+    },
+    {
+      "key": "knowledge-base",
+      "title": "Knowledge Base",
+      "type": "page",
+      "id": "6512609437ba4725befc8c2d473ab455",
+      "allowedScopes": [
+        "public"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 300
+    },
+    {
+      "key": "meetings",
+      "title": "Расписание звонков и встреч",
+      "type": "page",
+      "id": "8eb97f7468514245862e568e1a33b352",
+      "allowedScopes": [
+        "public"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 120
+    },
+    {
+      "key": "business-processes",
+      "title": "Business processes",
+      "type": "page",
+      "id": "ab86f8b6d866431eae0a569f00f3ff2a",
+      "allowedScopes": [
+        "public"
+      ],
+      "enabled": true,
+      "indexMode": "content",
+      "skipChildPages": false
+    },
+    {
+      "key": "hr",
+      "title": "HR",
+      "type": "page",
+      "id": "6fc13a2aa763441c8a99a6c3fabe9a2b",
+      "allowedScopes": [
+        "hr"
+      ],
+      "enabled": true,
+      "indexMode": "content",
+      "skipChildPages": false
+    },
+    {
+      "key": "development",
+      "title": "Development",
+      "type": "page",
+      "id": "81c090a3eb8544e5bae3c0f16e8d0cea",
+      "allowedScopes": [
+        "development"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 180
+    },
+    {
+      "key": "qa",
+      "title": "QA",
+      "type": "page",
+      "id": "81c090a3eb8544e5bae3c0f16e8d0cea",
+      "allowedScopes": [
+        "qa"
+      ],
+      "enabled": false,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 120
+    },
+    {
+      "key": "marketing",
+      "title": "Marketing",
+      "type": "page",
+      "id": "a8f96f12c49740449011576c63b3dc49",
+      "allowedScopes": [
+        "marketing"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "content",
+      "title": "Content",
+      "type": "page",
+      "id": "0d649d1a72214f8995fab1943d571f5b",
+      "allowedScopes": [
+        "content"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "gameleads",
+      "title": "Gameleads",
+      "type": "page",
+      "id": "8f8f18df97c04289ad89f4cc1dcf012f",
+      "allowedScopes": [
+        "gameleads"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "sales",
+      "title": "Sales - страница в работе",
+      "type": "page",
+      "id": "003eca6a356d4db7992586d8181bdc7a",
+      "allowedScopes": [
+        "sales"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "customer-care",
+      "title": "Customer Care",
+      "type": "page",
+      "id": "a120e5672a3646b68a0ff7e35fa6f757",
+      "allowedScopes": [
+        "customer-care"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "green-team",
+      "title": "Green Team - BM, QC, RCR, PT",
+      "type": "page",
+      "id": "b1ffe8deaad4491ab16629a75ef9d992",
+      "allowedScopes": [
+        "green-team"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "salesforce",
+      "title": "Salesforce",
+      "type": "page",
+      "id": "f7164ce8634a4b7db036d0d8652fe53c",
+      "allowedScopes": [
+        "salesforce"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "operations",
+      "title": "Operations",
+      "type": "page",
+      "id": "24b38e262e6c4fe5915d098979a02c14",
+      "allowedScopes": [],
+      "enabled": false
+    },
+    {
+      "key": "support",
+      "title": "Support",
+      "type": "page",
+      "parentTitle": "Operations",
+      "id": "38eecf7605974d5db3566460e77d2340",
+      "allowedScopes": [
+        "customer-care"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "black-team",
+      "title": "Black Team",
+      "type": "page",
+      "parentTitle": "Operations",
+      "id": "48a6fc4e5e3945a9b1fa278318489813",
+      "allowedScopes": [
+        "black-team"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "cso",
+      "title": "Currency Sales & Operations (CSO) Department",
+      "type": "page",
+      "parentTitle": "Operations",
+      "id": "63e73e3e32a84018b5ab6de3e5bf4b72",
+      "allowedScopes": [
+        "gold-team"
+      ],
+      "enabled": true,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 150
+    },
+    {
+      "key": "product",
+      "title": "Product",
+      "type": "page",
+      "id": "81c090a3eb8544e5bae3c0f16e8d0cea",
+      "allowedScopes": [
+        "product"
+      ],
+      "enabled": false,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 100
+    },
+    {
+      "key": "archive",
+      "title": "Архив",
+      "type": "page",
+      "id": "33056d8c586e43e78c38f2eb10f7499c",
+      "allowedScopes": [
+        "office",
+        "management"
+      ],
+      "enabled": false,
+      "indexMode": "shallow",
+      "skipChildPages": true,
+      "maxTopLevelBlocks": 100
+    }
+  ]
+}

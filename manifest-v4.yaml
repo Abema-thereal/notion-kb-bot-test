@@ -1,0 +1,34 @@
+_metadata:
+  major_version: 1
+
+display_information:
+  name: Notion KB Bot Test
+  description: Role-based Notion search bot for Slack
+  background_color: "#4A154B"
+
+features:
+  app_home:
+    home_tab_enabled: false
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: notion-kb-bot-test
+    always_online: false
+
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - chat:write
+      - im:history
+      - users.profile:read
+
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.im
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  is_hosted: false
+  token_rotation_enabled: false

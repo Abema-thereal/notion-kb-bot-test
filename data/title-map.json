@@ -1,0 +1,557 @@
+{
+  "fallbackScopes": [
+    "public"
+  ],
+  "exact": {
+    "accounting manager": [
+      "public",
+      "office"
+    ],
+    "active sales manager": [
+      "public",
+      "sales"
+    ],
+    "analyst": [
+      "public",
+      "office"
+    ],
+    "aqa engineer": [
+      "public",
+      "qa"
+    ],
+    "automation qa engineer": [
+      "public",
+      "qa"
+    ],
+    "backend developer": [
+      "public",
+      "development"
+    ],
+    "backend engineer": [
+      "public",
+      "development"
+    ],
+    "boosting manager": [
+      "public",
+      "green-team"
+    ],
+    "ceo": [
+      "public",
+      "office",
+      "management"
+    ],
+    "chairman": [
+      "public",
+      "office",
+      "management"
+    ],
+    "chief revenue officer": [
+      "public",
+      "office",
+      "management"
+    ],
+    "cmo": [
+      "public",
+      "office",
+      "management"
+    ],
+    "content manager": [
+      "public",
+      "content"
+    ],
+    "content team lead": [
+      "public",
+      "content"
+    ],
+    "coo": [
+      "public",
+      "office",
+      "management"
+    ],
+    "crm lead": [
+      "public",
+      "marketing"
+    ],
+    "cto": [
+      "public",
+      "office",
+      "management"
+    ],
+    "currency recruiter": [
+      "public",
+      "gold-team"
+    ],
+    "currency sales": [
+      "public",
+      "sales"
+    ],
+    "currency supple, team \"fifa\"": [
+      "public",
+      "gold-team"
+    ],
+    "currency supply": [
+      "public",
+      "gold-team"
+    ],
+    "currency supply, classic, other games": [
+      "public",
+      "gold-team"
+    ],
+    "currency supply, team \"fifa\"": [
+      "public",
+      "gold-team"
+    ],
+    "currency supply, team \"retail\"": [
+      "public",
+      "gold-team"
+    ],
+    "currency supply, team \"retail\" +1": [
+      "public",
+      "gold-team"
+    ],
+    "currency supply, team \"wotlk\"": [
+      "public",
+      "gold-team"
+    ],
+    "currency teamlead, \"retail\"": [
+      "public",
+      "gold-team"
+    ],
+    "currency teamlead, \"wotlk\", \"fifa\"": [
+      "public",
+      "gold-team"
+    ],
+    "customer care": [
+      "public",
+      "customer-care"
+    ],
+    "customer care lead": [
+      "public",
+      "customer-care"
+    ],
+    "customer care manager": [
+      "public",
+      "customer-care"
+    ],
+    "customer care team lead": [
+      "public",
+      "customer-care"
+    ],
+    "data engineer": [
+      "public",
+      "product"
+    ],
+    "devops engineer": [
+      "public",
+      "development"
+    ],
+    "documents operations manager": [
+      "public",
+      "office"
+    ],
+    "eu+us kit-manager": [
+      "public",
+      "black-team"
+    ],
+    "financial manager": [
+      "public",
+      "office"
+    ],
+    "financial team lead": [
+      "public",
+      "office"
+    ],
+    "frontend developer": [
+      "public",
+      "development"
+    ],
+    "frontend engineer": [
+      "public",
+      "development"
+    ],
+    "gamelead": [
+      "public",
+      "gameleads"
+    ],
+    "gamelead (junior product manager)": [
+      "public",
+      "gameleads"
+    ],
+    "gamelead arpg": [
+      "public",
+      "gameleads"
+    ],
+    "gamelead destiny 2": [
+      "public",
+      "gameleads"
+    ],
+    "gamelead mmorpg": [
+      "public",
+      "gameleads"
+    ],
+    "gamelead retail": [
+      "public",
+      "gameleads"
+    ],
+    "gamelead shooters": [
+      "public",
+      "gameleads"
+    ],
+    "gameleads team lead": [
+      "public",
+      "gameleads"
+    ],
+    "gdkp eu manager": [
+      "public",
+      "black-team"
+    ],
+    "gdkp manager": [
+      "public",
+      "black-team"
+    ],
+    "gdkp retail manager": [
+      "public",
+      "black-team"
+    ],
+    "guides manager": [
+      "public",
+      "marketing"
+    ],
+    "head of black team": [
+      "public",
+      "black-team"
+    ],
+    "head of boosting supply": [
+      "public",
+      "green-team"
+    ],
+    "head of customer care": [
+      "public",
+      "customer-care"
+    ],
+    "head of guides platform": [
+      "public",
+      "marketing"
+    ],
+    "head of user acquisition": [
+      "public",
+      "marketing"
+    ],
+    "hr": [
+      "public",
+      "office",
+      "hr"
+    ],
+    "hr manager": [
+      "public",
+      "office",
+      "hr"
+    ],
+    "hrd": [
+      "public",
+      "office",
+      "hr"
+    ],
+    "infuence marketing": [
+      "public",
+      "marketing"
+    ],
+    "items supply manager": [
+      "public",
+      "gold-team"
+    ],
+    "junior designer": [
+      "public",
+      "marketing"
+    ],
+    "junior gamelead": [
+      "public",
+      "gameleads"
+    ],
+    "junior product manager": [
+      "public",
+      "product"
+    ],
+    "junior qa manager": [
+      "public",
+      "qa"
+    ],
+    "key account manager": [
+      "public",
+      "sales"
+    ],
+    "lead frontend developer": [
+      "public",
+      "development"
+    ],
+    "lead product designer": [
+      "public",
+      "product"
+    ],
+    "legal advisor": [
+      "public",
+      "office"
+    ],
+    "low code developer": [
+      "public",
+      "development"
+    ],
+    "low code team lead": [
+      "public",
+      "development"
+    ],
+    "managing editor": [
+      "public",
+      "content"
+    ],
+    "manual qa": [
+      "public",
+      "qa"
+    ],
+    "operations manager": [
+      "public",
+      "green-team"
+    ],
+    "personal assistant": [
+      "public",
+      "office"
+    ],
+    "price-check manager": [
+      "public",
+      "green-team"
+    ],
+    "product manager": [
+      "public",
+      "product"
+    ],
+    "qa engineer": [
+      "public",
+      "qa"
+    ],
+    "quality control manager": [
+      "public",
+      "green-team"
+    ],
+    "recruiter": [
+      "public",
+      "office",
+      "hr"
+    ],
+    "sales crm lead": [
+      "public",
+      "sales"
+    ],
+    "sales data analyst": [
+      "public",
+      "sales"
+    ],
+    "sales manager": [
+      "public",
+      "sales"
+    ],
+    "sales qa specialist": [
+      "public",
+      "qa"
+    ],
+    "sales team lead": [
+      "public",
+      "sales"
+    ],
+    "salesforce administrator": [
+      "public",
+      "salesforce"
+    ],
+    "salesforce developer": [
+      "public",
+      "salesforce"
+    ],
+    "senior boosting manager": [
+      "public",
+      "green-team"
+    ],
+    "senior customer care manager": [
+      "public",
+      "customer-care"
+    ],
+    "senior frontend developer": [
+      "public",
+      "development"
+    ],
+    "senior graphic designer": [
+      "public",
+      "marketing"
+    ],
+    "senior support (off shifts)": [
+      "public",
+      "customer-care"
+    ],
+    "seo lead": [
+      "public",
+      "marketing"
+    ],
+    "supply projects manager": [
+      "public",
+      "green-team"
+    ],
+    "support": [
+      "public",
+      "customer-care"
+    ],
+    "support manager": [
+      "public",
+      "customer-care"
+    ],
+    "support team lead": [
+      "public",
+      "customer-care"
+    ],
+    "system administrator": [
+      "public",
+      "development"
+    ],
+    "system analyst": [
+      "public",
+      "development"
+    ],
+    "tech support": [
+      "public",
+      "customer-care"
+    ]
+  },
+  "contains": [
+    {
+      "needle": "qa",
+      "scopes": [
+        "public",
+        "qa"
+      ]
+    },
+    {
+      "needle": "frontend",
+      "scopes": [
+        "public",
+        "development"
+      ]
+    },
+    {
+      "needle": "backend",
+      "scopes": [
+        "public",
+        "development"
+      ]
+    },
+    {
+      "needle": "devops",
+      "scopes": [
+        "public",
+        "development"
+      ]
+    },
+    {
+      "needle": "low code",
+      "scopes": [
+        "public",
+        "development"
+      ]
+    },
+    {
+      "needle": "salesforce",
+      "scopes": [
+        "public",
+        "salesforce"
+      ]
+    },
+    {
+      "needle": "support",
+      "scopes": [
+        "public",
+        "customer-care"
+      ]
+    },
+    {
+      "needle": "customer care",
+      "scopes": [
+        "public",
+        "customer-care"
+      ]
+    },
+    {
+      "needle": "gamelead",
+      "scopes": [
+        "public",
+        "gameleads"
+      ]
+    },
+    {
+      "needle": "content",
+      "scopes": [
+        "public",
+        "content"
+      ]
+    },
+    {
+      "needle": "editor",
+      "scopes": [
+        "public",
+        "content"
+      ]
+    },
+    {
+      "needle": "marketing",
+      "scopes": [
+        "public",
+        "marketing"
+      ]
+    },
+    {
+      "needle": "sales",
+      "scopes": [
+        "public",
+        "sales"
+      ]
+    },
+    {
+      "needle": "boosting",
+      "scopes": [
+        "public",
+        "green-team"
+      ]
+    },
+    {
+      "needle": "gdkp",
+      "scopes": [
+        "public",
+        "black-team"
+      ]
+    },
+    {
+      "needle": "currency",
+      "scopes": [
+        "public",
+        "gold-team"
+      ]
+    },
+    {
+      "needle": "product",
+      "scopes": [
+        "public",
+        "product"
+      ]
+    },
+    {
+      "needle": "hr",
+      "scopes": [
+        "public",
+        "office",
+        "hr"
+      ]
+    },
+    {
+      "needle": "financial",
+      "scopes": [
+        "public",
+        "office"
+      ]
+    }
+  ]
+}

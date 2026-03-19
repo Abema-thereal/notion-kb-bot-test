@@ -1,0 +1,20 @@
+{
+  "name": "notion-kb-bot-test",
+  "version": "4.0.2",
+  "description": "Role-based Notion search bot for Slack",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --disable-warning=DEP0040 index.js",
+    "reindex": "node --disable-warning=DEP0040 scripts/reindex-local.js",
+    "discover:roots": "node scripts/discover-roots.js",
+    "check:user": "node scripts/check-user-scope.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.3.0",
+    "@slack/bolt": "^4.2.0",
+    "@slack/web-api": "^7.11.0",
+    "dotenv": "^16.6.1",
+    "exceljs": "^4.4.0"
+  }
+}
