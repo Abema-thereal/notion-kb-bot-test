@@ -1,98 +1,143 @@
-const config = require("./config");
-const { normalize, loadJson, unique } = require("./utils");
-const { findEmployeeBySlackProfile, getDepartmentScopes } = require("./employee-directory");
+const fs = require("fs/promises");
+const path = require("path");
+const { findEmployeeMatch } = require("./employee-directory");
 
-let cachedTitleMap = null;
+let titleMapCache = null;
 
-async function getTitleMap() {
-  if (!cachedTitleMap) {
-    cachedTitleMap = await loadJson(config.titleMapFile, {
-      fallbackScopes: ["public"],
-      exact: {},
-      contains: []
-    });
-  }
-  return cachedTitleMap;
+function normalizeText(value = "") {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s-]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-async function resolveScopesFromTitle(title, { useFallback = true } = {}) {
-  const titleMap = await getTitleMap();
-  const normalizedTitle = normalize(title);
+function unique(arr = []) {
+  return [...new Set(arr.filter(Boolean))];
+}
 
-  if (!normalizedTitle) {
-    return useFallback ? (titleMap.fallbackScopes || ["public"]) : [];
+function isMeaningful(scopes = [], fallbackScopes = ["public"]) {
+  const a = [...new Set(scopes)].sort().join("|");
+  const b = [...new Set(fallbackScopes)].sort().join("|");
+  return a !== b;
+}
+
+async function loadTitleMap() {
+  if (titleMapCache) return titleMapCache;
+
+  const filePath = path.join(process.cwd(), "data", "title-map.json");
+  const raw = await fs.readFile(filePath, "utf8");
+  titleMapCache = JSON.parse(raw);
+  return titleMapCache;
+}
+
+function resolveScopesFromTitle(title, titleMap) {
+  const fallbackScopes = Array.isArray(titleMap.fallbackScopes)
+    ? titleMap.fallbackScopes
+    : ["public"];
+
+  const normalizedTitle = normalizeText(title);
+  if (!normalizedTitle) return fallbackScopes;
+
+  const exact = titleMap.exact || {};
+  if (exact[normalizedTitle]) {
+    return unique(exact[normalizedTitle]);
   }
 
-  if (titleMap.exact && titleMap.exact[normalizedTitle]) {
-    return unique(titleMap.exact[normalizedTitle]);
-  }
-
-  const found = [];
-  for (const rule of titleMap.contains || []) {
-    if (normalizedTitle.includes(normalize(rule.needle))) {
-      found.push(...(rule.scopes || []));
+  const contains = Array.isArray(titleMap.contains) ? titleMap.contains : [];
+  for (const rule of contains) {
+    const needle = normalizeText(rule.needle || "");
+    if (needle && normalizedTitle.includes(needle)) {
+      return unique(rule.scopes || fallbackScopes);
     }
   }
 
-  if (found.length > 0) return unique(found);
-  return useFallback ? (titleMap.fallbackScopes || ["public"]) : [];
+  return fallbackScopes;
 }
 
-async function resolveUserAccess(profile) {
-  const titleMap = await getTitleMap();
-  const slackTitleScopes = await resolveScopesFromTitle(profile?.title || "", { useFallback: false });
-  const employee = await findEmployeeBySlackProfile(profile);
+function resolveScopesFromDepartment(department = "") {
+  const normalizedDepartment = normalizeText(department);
 
-  let scopes = [];
-  let source = "fallback";
-  let matchedTitle = "";
-  let matchedDepartment = "";
-  let matchedEmployeeName = "";
+  const map = {
+    "development": ["public", "development"],
+    "customer care": ["public", "customer-care"],
+    "customer-care": ["public", "customer-care"],
+    "green team": ["public", "green-team"],
+    "green-team": ["public", "green-team"],
+    "black team": ["public", "black-team"],
+    "black-team": ["public", "black-team"],
+    "gold team": ["public", "gold-team"],
+    "gold-team": ["public", "gold-team"],
+    "game leads": ["public", "gameleads"],
+    "gameleads": ["public", "gameleads"],
+    "head office": ["public", "office"],
+    "office": ["public", "office"],
+    "marketing": ["public", "marketing"],
+    "content": ["public", "content"],
+    "sales": ["public", "sales"],
+    "product": ["public", "product"],
+    "hr": ["public", "office", "hr"],
+    "salesforce": ["public", "salesforce"],
+    "qa": ["public", "qa"]
+  };
 
-  if (slackTitleScopes.length > 0) {
-    scopes = slackTitleScopes;
-    source = "slack-title";
-  } else if (employee?.jobTitle) {
-    const employeeTitleScopes = await resolveScopesFromTitle(employee.jobTitle, { useFallback: false });
-    if (employeeTitleScopes.length > 0) {
-      scopes = employeeTitleScopes;
-      source = "directory-title";
-      matchedTitle = employee.jobTitle;
-      matchedDepartment = employee.department;
-      matchedEmployeeName = employee.fullName;
-    }
-  }
+  return map[normalizedDepartment] || ["public"];
+}
 
-  if (scopes.length === 0 && employee?.department) {
-    const departmentScopes = getDepartmentScopes(employee.department);
-    if (departmentScopes?.length) {
+async function resolveUserAccess(profile = {}) {
+  const titleMap = await loadTitleMap();
+  const fallbackScopes = Array.isArray(titleMap.fallbackScopes)
+    ? titleMap.fallbackScopes
+    : ["public"];
+
+  const directoryMatch = await findEmployeeMatch(profile);
+
+  if (directoryMatch?.employee) {
+    const employee = directoryMatch.employee;
+
+    const titleScopes = resolveScopesFromTitle(employee.title || "", titleMap);
+    const departmentScopes = resolveScopesFromDepartment(employee.department || "");
+
+    let scopes;
+    if (isMeaningful(titleScopes, fallbackScopes) && isMeaningful(departmentScopes, fallbackScopes)) {
+      scopes = unique([...titleScopes, ...departmentScopes]);
+    } else if (isMeaningful(titleScopes, fallbackScopes)) {
+      scopes = titleScopes;
+    } else if (isMeaningful(departmentScopes, fallbackScopes)) {
       scopes = departmentScopes;
-      source = "directory-department";
-      matchedTitle = employee.jobTitle;
-      matchedDepartment = employee.department;
-      matchedEmployeeName = employee.fullName;
+    } else {
+      scopes = fallbackScopes;
     }
+
+    return {
+      scopes,
+      source: directoryMatch.source,
+      matchedEmployeeName: employee.name || "",
+      matchedTitle: employee.title || "",
+      matchedDepartment: employee.department || "",
+      matchedEmail: employee.email || "",
+    };
   }
 
-  if (scopes.length === 0) {
-    scopes = titleMap.fallbackScopes || ["public"];
-  }
+  const slackTitleScopes = resolveScopesFromTitle(profile.title || "", titleMap);
 
   return {
-    scopes: unique(["public", ...scopes]),
-    source,
-    matchedEmployeeName,
-    matchedTitle,
-    matchedDepartment
+    scopes: slackTitleScopes,
+    source: profile.title ? "slack_title" : "fallback_public",
+    matchedEmployeeName: "",
+    matchedTitle: profile.title || "",
+    matchedDepartment: "",
+    matchedEmail: profile.email || "",
   };
 }
 
-async function resolveScopesByTitle(title) {
-  return resolveScopesFromTitle(title, { useFallback: true });
+async function resolveScopesByTitle(title = "") {
+  const titleMap = await loadTitleMap();
+  return resolveScopesFromTitle(title, titleMap);
 }
 
 module.exports = {
-  getTitleMap,
+  resolveUserAccess,
   resolveScopesByTitle,
-  resolveUserAccess
 };
